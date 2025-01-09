@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const app = express();
 const port = 3000;
 const categoryRoutes = require("./routes/category");
+const brandRoutes = require("./routes/brand");
 const cors = require("cors");
 
 app.use(cors());
@@ -16,6 +17,7 @@ app.listen(port, () => {
 });
 
 app.use("/category", categoryRoutes);
+app.use("/brand", brandRoutes)
 
 async function connectDb() {
   await mongoose.connect("mongodb://localhost:27017", {
